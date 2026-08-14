@@ -1,12 +1,12 @@
 :root {
-  --paper: #FFF7EA;
-  --paper-dim: #F3EBD8;
-  --ink: #2B2118;
-  --ink-soft: #6B5D4F;
-  --red: #D64545;
-  --teal: #2F8F7B;
-  --yellow: #F4B740;
-  --line: #E3D5BE;
+  --paper: #ffffff;
+  --paper-dim: #f5f5f5;
+  --ink: #1a1a1a;
+  --ink-soft: #666666;
+  --red: #0055ff;
+  --teal: #1a8cff;
+  --yellow: #ff7f00;
+  --line: #e0e0e0;
 
   --font-display: 'Baloo 2', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -290,7 +290,7 @@ body {
 }
 
 .product-body {
-  padding: 16px 18px 20px;
+  padding: 12px 18px 20px;
   position: relative;
 }
 
@@ -310,6 +310,38 @@ body {
   color: var(--ink);
   margin-bottom: 16px;
   min-height: 42px;
+}
+
+/* Color Selector */
+.color-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.color-bubble {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.color-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.color-bubble.active {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
 }
 
 /* Etiqueta de precio estilo "swing tag" */

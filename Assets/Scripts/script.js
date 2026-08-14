@@ -4,7 +4,7 @@
    phone number throughout the site.
 ====================================================== */
 const STORE_CONFIG = {
-  name: "Lizzie's Mart",
+  name: "Johnny's Shop",
   phone: "999 123 4567",       // Displayed in the UI
   phoneLink: "+529991234567"   // Used by the tel: link, including country code
 };
@@ -15,32 +15,71 @@ const STORE_CONFIG = {
    { name: "Product name", price: 12.50, category: "Category", image: "image-url" }
 ====================================================== */
 const PRODUCTS = [
-//School Supplies
+  // Shirts
   {
-    name: "Crayola 24 Crayones",
-    image: "https://i5.walmartimages.com/seo/Crayola-Crayons-24-Count-Back-to-School-Supplies-Classroom-Supplies-Assorted-Classic-Colors-Gifts_7d903bb9-1913-4e85-ac7f-0519430d8e10.5bb5606f5158b0118d753c8fd09facbf.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
-    price: 18.50,
-    category: "Escuela"
+    name: "Magellan Outdoors Men's Laguna Madre T-shirt",
+    price: 35.99,
+    category: "Shirts",
+    colors: [
+      { name: "Red", hex: "#fcf8f8", image: "https://academy.scene7.com/is/image/academy/20379448?$pdp-gallery-ng$" },
+      { name: "Blue", hex: "#2F8F7B", image: "https://academy.scene7.com/is/image/academy/20379446?$pdp-gallery-ng$" },
+      { name: "Yellow", hex: "#F4B740", image: "https://academy.scene7.com/is/image/academy/21695713?$pdp-gallery-ng$" },
+      { name: "Black", hex: "#2B2118", image: "https://academy.scene7.com/is/image/academy/21568629?$pdp-gallery-ng$" }
+    ]
   },
   {
-    name: "Libreta Spiral",
-    image: "https://i5.walmartimages.com/seo/Pen-Gear-Spiral-Notebook-Wide-Ruled-1-Subject-70-Pages-10-5-x-8-Red-57270_36275474-8a37-44e8-aad0-026544014632.17e7aec21d1469f705c0f3ae19a34fbf.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
-    price: 45.00,
-    category: "Escuela"
+    name: "V-Neck T-Shirt",
+    price: 24.99,
+    category: "Shirts",
+    colors: [
+      { name: "Red", hex: "#D64545", image: "https://placehold.co/500x500/D64545/FFF7EA?text=V-Neck" },
+      { name: "White", hex: "#FFFFFF", image: "https://placehold.co/500x500/FFFFFF/2B2118?text=V-Neck" },
+      { name: "Navy", hex: "#1a3a52", image: "https://placehold.co/500x500/1a3a52/FFF7EA?text=V-Neck" }
+    ]
   },
-  //Food and Beverage
+  // Shoes
   {
-    name: "Agua embotellada",
-    image: "https://placehold.co/500x500/2F8F7B/FFF7EA?text=Agua+600ml",
-    price: 12.00,
-    category: "Bebidas"
+    name: "Running Sneakers",
+    price: 89.99,
+    category: "Shoes",
+    colors: [
+      { name: "Red", hex: "#D64545", image: "https://placehold.co/500x500/D64545/FFF7EA?text=Running+Shoes" },
+      { name: "White", hex: "#FFFFFF", image: "https://placehold.co/500x500/FFFFFF/2B2118?text=Running+Shoes" },
+      { name: "Black", hex: "#2B2118", image: "https://placehold.co/500x500/2B2118/FFF7EA?text=Running+Shoes" },
+      { name: "Gray", hex: "#808080", image: "https://placehold.co/500x500/808080/FFF7EA?text=Running+Shoes" }
+    ]
   },
-  //Home
   {
-    name: "Papel higiénico",
-    image: "https://placehold.co/500x500/D64545/FFF7EA?text=Papel+Higienico",
-    price: 28.00,
-    category: "Hogar"
+    name: "Casual Canvas Shoes",
+    price: 64.99,
+    category: "Shoes",
+    colors: [
+      { name: "Red", hex: "#D64545", image: "https://placehold.co/500x500/D64545/FFF7EA?text=Canvas+Shoes" },
+      { name: "Teal", hex: "#2F8F7B", image: "https://placehold.co/500x500/2F8F7B/FFF7EA?text=Canvas+Shoes" },
+      { name: "Navy", hex: "#1a3a52", image: "https://placehold.co/500x500/1a3a52/FFF7EA?text=Canvas+Shoes" }
+    ]
+  },
+  // Accessories
+  {
+    name: "Adjustable Baseball Cap",
+    price: 22.99,
+    category: "Accessories",
+    colors: [
+      { name: "Red", hex: "#D64545", image: "https://placehold.co/500x500/D64545/FFF7EA?text=Baseball+Cap" },
+      { name: "Black", hex: "#2B2118", image: "https://placehold.co/500x500/2B2118/FFF7EA?text=Baseball+Cap" },
+      { name: "Navy", hex: "#1a3a52", image: "https://placehold.co/500x500/1a3a52/FFF7EA?text=Baseball+Cap" }
+    ]
+  },
+  {
+    name: "Cotton Crew Socks Pack",
+    price: 16.99,
+    category: "Accessories",
+    colors: [
+      { name: "Red", hex: "#D64545", image: "https://placehold.co/500x500/D64545/FFF7EA?text=Socks+3-Pack" },
+      { name: "Black", hex: "#2B2118", image: "https://placehold.co/500x500/2B2118/FFF7EA?text=Socks+3-Pack" },
+      { name: "Gray", hex: "#808080", image: "https://placehold.co/500x500/808080/FFF7EA?text=Socks+3-Pack" },
+      { name: "White", hex: "#FFFFFF", image: "https://placehold.co/500x500/FFFFFF/2B2118?text=Socks+3-Pack" }
+    ]
   }
 ];
 
@@ -109,11 +148,27 @@ function getFilteredProducts() {
 function createProductCard(product) {
   const card = document.createElement('div');
   card.classList.add('product-card');
+  
+  // Use the first color as default
+  const defaultColor = product.colors[0];
+  const hasMultipleColors = product.colors && product.colors.length > 1;
 
   card.innerHTML = `
     <div class="product-image-wrap">
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${defaultColor.image}" alt="${product.name} in ${defaultColor.name}" class="product-image">
     </div>
+    ${hasMultipleColors ? `
+      <div class="color-selector">
+        ${product.colors.map((color, index) => `
+          <button class="color-bubble ${index === 0 ? 'active' : ''}" 
+                  style="background-color: ${color.hex}" 
+                  title="${color.name}"
+                  data-color-index="${index}"
+                  aria-label="${color.name}">
+          </button>
+        `).join('')}
+      </div>
+    ` : ''}
     <div class="product-body">
       <div class="product-category">${product.category}</div>
       <p class="product-description">${product.name}</p>
@@ -123,6 +178,27 @@ function createProductCard(product) {
       </div>
     </div>
   `;
+
+  // Add color selection functionality
+  if (hasMultipleColors) {
+    const colorBubbles = card.querySelectorAll('.color-bubble');
+    const productImage = card.querySelector('.product-image');
+    
+    colorBubbles.forEach(bubble => {
+      bubble.addEventListener('click', () => {
+        const colorIndex = parseInt(bubble.dataset.colorIndex);
+        const selectedColor = product.colors[colorIndex];
+        
+        // Update image
+        productImage.src = selectedColor.image;
+        productImage.alt = `${product.name} in ${selectedColor.name}`;
+        
+        // Update active state
+        colorBubbles.forEach(b => b.classList.remove('active'));
+        bubble.classList.add('active');
+      });
+    });
+  }
 
   return card;
 }
