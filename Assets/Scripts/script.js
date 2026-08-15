@@ -4,7 +4,7 @@
    y el número de teléfono en todo el sitio.
 ====================================================== */
 const STORE_CONFIG = {
-  name: "Johnny's Shop",
+  name: "Cocu's Shop",
   phone: "832-484-9161",       // Se muestra en la interfaz
   phoneLink: "+18324849161"   // Usado por el enlace tel:, incluye código de país
 };
@@ -124,6 +124,13 @@ function renderCategoryChips() {
   const categories = ['Todos', ...new Set(PRODUCTS.map(p => p.category))];
 
   categoryChips.innerHTML = '';
+
+  // Agregar título del sidebar
+  const title = document.createElement('div');
+  title.className = 'sidebar-title';
+  title.textContent = 'Filtros';
+  title.style.cssText = 'font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--ink); margin-bottom: 16px; display: block;';
+  categoryChips.appendChild(title);
 
   categories.forEach(category => {
     const chip = document.createElement('button');
@@ -395,7 +402,7 @@ function sendCartToWhatsApp() {
     return;
   }
   
-  let message = `🛍️ *Pedido de Johnny's Shop*\n\n`;
+  let message = `🛍️ *Pedido de Cocu's Shop*\n\n`;
   let total = 0;
   
   cart.forEach((item, index) => {
@@ -439,6 +446,45 @@ cartModal.addEventListener('click', (e) => {
   if (e.target === cartModal) {
     cartModal.classList.remove('open');
   }
+});
+
+// Funcionalidad del menú hamburguesa
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+let menuOpen = false;
+
+hamburgerMenu.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  hamburgerMenu.classList.toggle('active');
+  categoryChips.classList.toggle('visible');
+  sidebarOverlay.classList.toggle('visible');
+  hamburgerMenu.setAttribute('aria-expanded', menuOpen);
+});
+
+// Cerrar el sidebar cuando se hace clic en el overlay
+sidebarOverlay.addEventListener('click', () => {
+  menuOpen = false;
+  hamburgerMenu.classList.remove('active');
+  categoryChips.classList.remove('visible');
+  sidebarOverlay.classList.remove('visible');
+  hamburgerMenu.setAttribute('aria-expanded', false);
+});
+
+// Cerrar el sidebar cuando se selecciona una categoría
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const chips = document.querySelectorAll('.chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        // Mantener el sidebar abierto para que el usuario pueda hacer más cambios
+        // Descomenta esto si prefieres que se cierre automáticamente:
+        // menuOpen = false;
+        // hamburgerMenu.classList.remove('active');
+        // categoryChips.classList.remove('visible');
+        // sidebarOverlay.classList.remove('visible');
+      });
+    });
+  }, 100);
 });
 
 // Carga inicial

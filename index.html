@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johnny's Shop</title>
+  <title>Cocu's Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Assets/CSS/styles.css">
@@ -20,15 +20,24 @@
     </a>
   </div>
 
-  <!-- Encabezado de la tienda -->
-  <header class="header">
-    <div class="header-brand">
-      <img src="Assets/Img/Logo1.png" alt="Logo de Johnny's Shop" class="brand-logo">
-      <div class="brand-text">
-        <h1 id="store-name" class="store-name">Johnny's Shop</h1>
+  <!-- Banner de la tienda -->
+  <banner class="store-banner">
+    <div class="banner-content">
+      <img src="Assets/Img/Logo1.png" alt="Logo de Cocu's Shop" class="banner-logo">
+      <div class="banner-text">
+        <h1 id="store-name" class="store-name">Cocu's Shop</h1>
         <p class="store-tagline">Tu Estilo, Tu Elección</p>
       </div>
     </div>
+  </banner>
+
+  <!-- Encabezado de la tienda con hamburguesa -->
+  <header class="header">
+    <button id="hamburger-menu" class="hamburger-menu" aria-label="Menú de filtros" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="header-actions">
       <a href="#contact-section" class="contact-cta">Contactame</a>
     </div>
@@ -43,8 +52,13 @@
       </svg>
       <input type="text" id="search-input" placeholder="Buscar productos...">
     </div>
-    <div id="category-chips" class="category-chips"></div>
   </div>
+
+  <!-- Sidebar de filtros -->
+  <div id="category-chips" class="category-chips"></div>
+
+  <!-- Overlay para cerrar sidebar -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
   <!-- Cuadrícula de productos -->
   <main id="product-grid" class="product-grid"></main>

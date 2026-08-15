@@ -1,12 +1,27 @@
 :root {
-  --paper: #ffffff;
-  --paper-dim: #f5f5f5;
+  --paper: #a7a7a7;
+  --paper-dim: #f0f0f0;
   --ink: #1a1a1a;
-  --ink-soft: #666666;
-  --red: #0055ff;
-  --teal: #1a8cff;
-  --yellow: #ff7f00;
-  --line: #e0e0e0;
+  --ink-soft: #3d3d3d;
+  --red: #ffde59;
+  --teal: #f2b705;
+  --yellow: #ffde59;
+  --line: #000000;
+
+  --product-card-bg: #f1ebeb;
+  --price-tag-bg: #fdf3d7;
+
+  --success: #25d366;
+  --success-hover: #20ba5c;
+  --danger: #ff4444;
+  --danger-hover: #cc0000;
+
+  --shadow-rgb: 0, 0, 0;
+  --stripe-opacity: 0.07;
+  --shadow-soft: rgba(var(--shadow-rgb), 0.1);
+  --shadow-medium: rgba(var(--shadow-rgb), 0.2);
+  --shadow-strong: rgba(var(--shadow-rgb), 0.3);
+  --overlay-bg: rgba(var(--shadow-rgb), 0.5);
 
   --font-display: 'Baloo 2', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -25,7 +40,7 @@ html {
 body {
   background-color: var(--paper);
   background-image:
-    repeating-linear-gradient(45deg, rgba(214,69,69,0.035) 0, rgba(214,69,69,0.035) 12px, transparent 12px, transparent 24px);
+    repeating-linear-gradient(45deg, rgba(var(--shadow-rgb), var(--stripe-opacity)) 0, rgba(var(--shadow-rgb), var(--stripe-opacity)) 12px, transparent 12px, transparent 24px);
   font-family: var(--font-body);
   color: var(--ink);
   padding-bottom: 60px;
@@ -61,20 +76,112 @@ body {
   fill: currentColor;
 }
 
+/* Banner de la tienda */
+.store-banner {
+  background-color: var(--paper);
+  border-bottom: 2px solid var(--line);
+  padding: 20px;
+  display: block;
+}
+
+.banner-content {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.banner-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+.banner-text {
+  text-align: center;
+}
+
+.banner-text .store-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--red);
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px var(--shadow-soft);
+  display: inline-block;
+  margin: 0;
+}
+
+.banner-text .store-tagline {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
 /* Encabezado */
 .header {
-  padding: 22px 20px 18px;
+  padding: 12px 20px;
   background-color: var(--paper);
   border-bottom: 1px solid var(--line);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 1000;
+}
+
+.hamburger-menu {
+  display: flex;
   flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger-menu:hover {
+  background-color: var(--paper-dim);
+}
+
+.hamburger-menu span {
+  width: 24px;
+  height: 3px;
+  background-color: var(--ink);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
 }
 
 .header-brand {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 16px;
@@ -86,6 +193,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-left: auto;
 }
 
 .brand-logo {
@@ -109,7 +217,7 @@ body {
   font-size: 52px;
   color: var(--red);
   letter-spacing: 0.5px;
-  text-shadow: 3px 3px 0px var(--yellow);
+  text-shadow: 2px 2px 4px var(--shadow-soft);
   display: inline-block;
 }
 
@@ -124,13 +232,15 @@ body {
   display: inline-block;
   padding: 10px 18px;
   border-radius: 999px;
-  background-color: var(--red);
+  background-color: var(--line);
   color: white;
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 700;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 0 var(--shadow-soft);
   transition: transform 0.2s ease;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .header-action-logo {
@@ -150,7 +260,8 @@ body {
 .controls {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px 30px;
+  padding: 20px 20px 30px;
+  border-top: 1px solid var(--line);
 }
 
 .search-wrap {
@@ -187,33 +298,71 @@ body {
 }
 
 .category-chips {
+  position: fixed;
+  left: -300px;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 2px solid var(--line);
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
+  overflow-y: auto;
+  z-index: 1001;
+  transition: left 0.3s ease;
+  flex-wrap: nowrap;
+}
+
+.category-chips.visible {
+  left: 0;
 }
 
 .chip {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 14px;
-  padding: 8px 18px;
-  border-radius: 999px;
+  padding: 12px 16px;
+  border-radius: 8px;
   border: 2px solid var(--line);
   background-color: white;
   color: var(--ink-soft);
   cursor: pointer;
   transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
 }
 
 .chip:hover {
   border-color: var(--teal);
   color: var(--teal);
+  background-color: #f0f8ff;
 }
 
 .chip.active {
   background-color: var(--teal);
   border-color: var(--teal);
-  color: white;
+  color: var(--ink);
+}
+
+/* Overlay de la barra lateral */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Cuadrícula de productos */
@@ -262,7 +411,7 @@ body {
 }
 
 .product-card {
-  background-color: white;
+  background-color: var(--product-card-bg);
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -336,7 +485,7 @@ body {
 
 .color-bubble:hover {
   transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-soft) 0 2px 8px;
 }
 
 .color-bubble.active {
@@ -392,7 +541,7 @@ body {
 .size-button.available.selected {
   border-color: var(--teal);
   background-color: var(--teal);
-  color: white;
+  color: var(--ink);
 }
 
 .size-button.unavailable {
@@ -406,9 +555,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--yellow);
+  background-color: var(--price-tag-bg);
+  border: 2px solid var(--teal);
   padding: 8px 16px 8px 12px;
-  border-radius: 4px 10px 10px 4px;
+  border-radius: 8px;
   transform: rotate(-2deg);
   position: relative;
   font-family: var(--font-display);
@@ -419,15 +569,15 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--paper);
-  border: 1.5px solid var(--ink);
+  background-color: var(--red);
+  border: 1.5px solid var(--red);
   flex-shrink: 0;
 }
 
 .price-tag .amount {
   font-weight: 700;
   font-size: 18px;
-  color: var(--ink);
+  color: var(--red);
 }
 
 .price-tag .currency {
@@ -449,7 +599,7 @@ body {
   width: 100%;
   padding: 12px;
   margin-top: 12px;
-  background-color: var(--red);
+  background-color: var(--line);
   color: white;
   border: none;
   border-radius: 8px;
@@ -462,7 +612,7 @@ body {
 
 .add-to-cart-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 85, 255, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-strong);
 }
 
 .add-to-cart-btn:active {
@@ -477,13 +627,13 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: var(--red);
+  background-color: var(--line);
   color: white;
   border: none;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px var(--shadow-medium);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -493,7 +643,7 @@ body {
 
 .cart-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 85, 255, 0.4);
+  box-shadow: 0 6px 16px var(--shadow-strong);
 }
 
 .cart-count {
@@ -519,7 +669,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -543,7 +693,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px var(--shadow-strong);
   animation: slideUp 0.3s ease;
 }
 
@@ -639,7 +789,7 @@ body {
 }
 
 .remove-item-btn {
-  background-color: #ff4444;
+  background-color: var(--danger);
   color: white;
   border: none;
   padding: 6px 12px;
@@ -651,7 +801,7 @@ body {
 }
 
 .remove-item-btn:hover {
-  background-color: #cc0000;
+  background-color: var(--danger-hover);
 }
 
 .cart-total {
@@ -666,7 +816,7 @@ body {
 .send-whatsapp-btn {
   width: 100%;
   padding: 14px;
-  background-color: #25d366;
+  background-color: var(--success);
   color: white;
   border: none;
   font-size: 16px;
@@ -679,7 +829,7 @@ body {
 }
 
 .send-whatsapp-btn:hover {
-  background-color: #20ba5c;
+  background-color: var(--success-hover);
   transform: translateY(-2px);
 }
 
@@ -749,8 +899,46 @@ body {
 
 /* Responsivo */
 @media (max-width: 600px) {
+  .banner-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .banner-text .store-name {
+    font-size: 24px;
+  }
+
+  .banner-text .store-tagline {
+    font-size: 12px;
+  }
+
   .store-name {
     font-size: 38px;
+  }
+
+  .hamburger-menu {
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .hamburger-menu span {
+    width: 20px;
+    height: 2.5px;
+  }
+
+  .contact-cta {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .category-chips {
+    width: 240px;
+  }
+
+  .chip {
+    padding: 10px 14px;
+    font-size: 13px;
   }
 
   .section-products {
