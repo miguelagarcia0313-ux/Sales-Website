@@ -1,25 +1,25 @@
-# Sales Website
+# Sitio Web de Ventas
 
-A simple storefront landing page for a neighborhood shop built with HTML, CSS, and vanilla JavaScript. The site includes a product grid, search functionality, category filters, and a configurable contact section.
+Una página de inicio simple para una tienda de barrio construida con HTML, CSS y JavaScript vanilla. El sitio incluye una cuadrícula de productos, funcionalidad de búsqueda, filtros de categorías y una sección de contacto configurable.
 
-## Features
-- Responsive product cards
-- Search bar for filtering products
-- Category chips for quick browsing
-- Easy customization for the store name, phone number, and products
+## Características
+- Tarjetas de productos receptivas
+- Barra de búsqueda para filtrar productos
+- Fichas de categoría para navegación rápida
+- Personalización fácil del nombre de la tienda, número de teléfono y productos
 
-## Project structure
-- index.html — main page structure
-- Assets/CSS/styles.css — visual styling
-- Assets/Scripts/script.js — store configuration and product rendering
+## Estructura del proyecto
+- index.html — estructura principal de la página
+- Assets/CSS/styles.css — estilo visual
+- Assets/Scripts/script.js — configuración de la tienda y renderizado de productos
 
-## Run locally
-1. Open the project folder in your terminal.
-2. Start a local server:
+## Ejecutar localmente
+1. Abre la carpeta del proyecto en tu terminal.
+2. Inicia un servidor local:
    python3 -m http.server 8000
-3. Open http://127.0.0.1:8000/ in your browser.
+3. Abre http://127.0.0.1:8000/ en tu navegador.
 
-## Customize
-- Update the store name and phone number in the configuration section of script.js.
-- Add or edit products in the PRODUCTS array.
-- Adjust the layout and appearance in styles.css.
+## Personalizar
+- Actualiza el nombre de la tienda y el número de teléfono en la sección de configuración de script.js.
+- Añade o edita productos en el array PRODUCTOS.
+- Ajusta el diseño y la apariencia en styles.css.

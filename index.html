@@ -10,23 +10,23 @@
 </head>
 <body>
 
-  <!-- Top contact bar -->
+  <!-- Barra de contacto superior -->
   <div class="contact-bar">
-    <a id="phone-link" href="tel:+529991234567" class="phone-link">
+    <a id="phone-link" href="tel:+18324849161" class="phone-link">
       <svg viewBox="0 0 24 24" class="phone-icon" aria-hidden="true">
         <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/>
       </svg>
-      <span id="phone-number">999 123 4567</span>
+      <span id="phone-number">832-484-9161</span>
     </a>
   </div>
 
-  <!-- Store header -->
+  <!-- Encabezado de la tienda -->
   <header class="header">
     <div class="header-brand">
-      <img src="Assets/Img/Logo1.png" alt="Johnny's Shop logo" class="brand-logo">
+      <img src="Assets/Img/Logo1.png" alt="Logo de Johnny's Shop" class="brand-logo">
       <div class="brand-text">
         <h1 id="store-name" class="store-name">Johnny's Shop</h1>
-        <p class="store-tagline">Your Style, Your Choice</p>
+        <p class="store-tagline">Tu Estilo, Tu Elección</p>
       </div>
     </div>
     <div class="header-actions">
@@ -34,7 +34,7 @@
     </div>
   </header>
 
-  <!-- Search and filters -->
+  <!-- Búsqueda y filtros -->
   <div class="controls">
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true">
@@ -46,27 +46,43 @@
     <div id="category-chips" class="category-chips"></div>
   </div>
 
-  <!-- Product grid -->
+  <!-- Cuadrícula de productos -->
   <main id="product-grid" class="product-grid"></main>
 
   <p id="empty-message" class="empty-message" hidden>No encontramos productos que coincidan con tu búsqueda.</p>
 
+  <!-- Botón de carrito flotante -->
+  <button id="cart-btn" class="cart-btn">
+    🛒 <span id="cart-count" class="cart-count">0</span>
+  </button>
+
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <h2>Carrito de Compras</h2>
+        <button id="close-cart" class="close-cart">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <p class="empty-cart">Tu carrito está vacío</p>
+      </div>
+    </div>
+  </div>
+
   <section id="contact-section" class="contact-section">
     <div class="contact-card">
-      <p class="contact-eyebrow">Contact Me</p>
+      <p class="contact-eyebrow">Contáctame</p>
       <h2>Hablemos</h2>
-      <p>Encuéntrame por teléfono, correo, WhatsApp o Facebook.</p>
+      <p>Encuéntrame por Telefono o WhatsApp</p>
       <div class="contact-links">
-        <a href="tel:+529991234567">📞 Teléfono</a>
-        <a href="mailto:hello@example.com">✉️ Correo</a>
-        <a href="https://wa.me/529991234567" target="_blank" rel="noreferrer">💬 WhatsApp</a>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer">📘 Facebook</a>
+        <a href="tel:+18324849161">📞 Teléfono</a>
+        <a href="https://wa.me/18324849161" target="_blank" rel="noreferrer">💬 WhatsApp</a>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
-    <p>Made by Me 2026</p>
+    <p>Hecho por Mí 2026</p>
   </footer>
 
   <script src="Assets/Scripts/script.js"></script>
